@@ -23,15 +23,7 @@ function renderLicenseBadge(license) {
 		badgeArr.push(Apache)
 	}
 	
-	return badgeArr.splice(",");
-
-	// if(license[0] === "MIT" && license[1] === "GNU" && license[2] === "ISC" && license[3] === "Apache"){
-	// 	return MIT + "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) " + "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC) " + "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) "
-	// } else if(license[0] === "MIT" && license[1] === "GNU" && license[2] === "ISC"){
-	// 	return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) " + "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) " + "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC) ";
-	// } else if(license[0] === "MIT" && license[1] === "GNU"){
-	// 	return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) " + "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) "
-	// }
+	return badgeArr.join(" ");
 }
 
 // TODO: Create a function that returns the license link
@@ -45,7 +37,7 @@ function renderLicenseSection(license) {
 	for(let x of license){
 		console.log(license.length)
 		if(license.length > 1){
-			licenseText += license + ","
+			licenseText += license + ", "
 		} else{
 			licenseText += x;
 		}
@@ -58,13 +50,26 @@ function generateMarkdown(data) {
   return `# ${data.title}
 ${renderLicenseBadge(data.license)}
 ## Usage
+---
 ${data.usage}
+
 ## Features
+---
 ${data.features}
+
 ## Installation
+---
 ${data.installation}
+
 ## License
+---
 ${renderLicenseSection(data.license)}
+
+## Questions?
+---
+Get in touch with me at ${data.email}
+
+Link to my github: https://github.com/${data.github}
 `;
 }
 
