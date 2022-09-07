@@ -32,7 +32,18 @@ const questions = () => {
             name: 'license',
             message: 'Select what licenses to include',
             choices: ['MIT',"GNU","ISC","Apache"]
+        },
+        {
+            type: 'input',
+            name: 'Questions',
+            message: 'Input your email so people can reach you with questions'
+        },
+        {
+            type: 'input',
+            name: 'Questions',
+            message: 'Input your GitHub username (Please enter a valid user)' 
         }
+        
     ])
     .then((answers) => {
         writeToFile(answers);
