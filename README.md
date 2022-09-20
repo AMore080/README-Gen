@@ -6,7 +6,8 @@ Spend less time creating a README from scratch and more time working on projects
 
 ## Features
 ---
-Javascript and NodeJS
+-Javascript
+-NodeJS
 
 ## Installation
 ---
